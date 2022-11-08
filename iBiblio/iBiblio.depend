@@ -1,0 +1,28 @@
+# depslib dependency file v1.0
+1665613308 source:c:\users\xaydu\onedrive\documentos\algoritmos\2022-2c\tpe\ibiblio\main.cpp
+	<iostream>
+	<fstream>
+	<clocale>
+
+1667939999 source:d:\facultad\ayda1\ibiblio\ibiblio\main.cpp
+	<iostream>
+	<fstream>
+	<clocale>
+	"Libro.h"
+	"Lista.h"
+
+1667930872 source:d:\facultad\ayda1\ibiblio\ibiblio\src\libro.cpp
+	"Libro.h"
+	<iostream>
+
+1667915334 d:\facultad\ayda1\ibiblio\ibiblio\include\libro.h
+	<iostream>
+
+1667935919 source:d:\facultad\ayda1\ibiblio\ibiblio\src\lista.cpp
+	"Lista.h"
+	"Libro.h"
+
+1667939888 d:\facultad\ayda1\ibiblio\ibiblio\include\lista.h
+	<iostream>
+	"Libro.h"
+
