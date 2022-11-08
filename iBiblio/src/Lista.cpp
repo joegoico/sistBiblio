@@ -2,7 +2,7 @@
 #include "Libro.h"
 Lista::Lista()
 {
-    this->pAnio=NULL;
+    this->pAnio=nullptr;
 }
 /*void Lista::listarPorRango(int inicio,int fin,Lista elemento){
     nodo *aux;
@@ -26,45 +26,46 @@ Lista::Lista()
         return false;
 }*/
 void Lista::vincularPorAnio(Libro elemento){
+    nodo *aux= new nodo;
     if(this->pAnio==NULL){
-        //new(pAnio);
-        this->pAnio->elemento=elemento;
-        this->pAnio->sig=NULL;
+        aux->elemento=elemento;
+        aux->sig=NULL;
+        this->pAnio=aux;
     }
     else if(this->pAnio->elemento.getAnio()>elemento.getAnio()){
-        nodo *aux= new nodo;
+        //cout<<elemento.getAnio()<<" / ";
         aux->elemento=elemento;
         aux->sig=this->pAnio;
         this->pAnio=aux;
-        delete(aux);
     }
     else{
-        nodo *aux= new nodo;
         aux=this->pAnio;
-        while((aux->sig!=NULL) and (aux->sig->elemento.getAnio()<=elemento.getAnio()))
+        while((aux->sig!=NULL) and (aux->sig->elemento.getAnio()<=elemento.getAnio())){
+            cout<<aux->elemento.getAnio()<<endl;
             aux=aux->sig;
+        }
         nodo *agregado= new nodo;
         agregado->elemento=elemento;
         agregado->sig=aux->sig;
         aux->sig=agregado;
-        delete(aux);
         delete(agregado);
     }
+    delete(aux);
 }
 void Lista::imprimir(){
-    nodo *aux;
+    nodo *aux=new nodo;
     aux=this->pAnio;
     while (aux!=NULL){
-        cout << "   ISBN: " << aux->elemento.getISBN() << endl;
+        /*cout << "   ISBN: " << aux->elemento.getISBN() << endl;
         cout << "   TITULO: " << aux->elemento.getTitulo()<< endl;
         cout << "   AUTOR: " << aux->elemento.getAutor()<< endl;
-        cout << "   EDITORIAL: " << aux->elemento.getEditorial()<<endl;
+        cout << "   EDITORIAL: " << aux->elemento.getEditorial()<<endl;*/
         cout << "   AñO EDICION: " << aux->elemento.getAnio()<< endl;
-        cout << "   NÚMERO EDICION: " << aux->elemento.getNumeroEdicion()<< endl;
+        /*cout << "   NÚMERO EDICION: " << aux->elemento.getNumeroEdicion()<< endl;
         cout << "   GENEROS: " << aux->elemento.getListaGeneros()<<endl;
         cout << "   PAGINAS: " << aux->elemento.getPaginas() <<endl;
         cout << "   EJEMPLARES VENDIDOS: " << aux->elemento.getVendidos() <<endl;
-        cout << "   PRECIO: " << aux->elemento.getPrecio() <<endl<<endl;
+        cout << "   PRECIO: " << aux->elemento.getPrecio() <<endl<<endl;*/
         aux=aux->sig;
     }
 }

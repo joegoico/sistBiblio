@@ -1,4 +1,5 @@
 #include <iostream>
+#include <sstream>
 #include <fstream>
 #include <clocale>
 #include "Libro.h"
@@ -14,14 +15,15 @@ void procesar_archivo_entrada(string origen,Lista listaLibros);//, Contenedor & 
 int main()
 {
     setlocale(LC_ALL, ""); //asegurarse que el archivo de texto fue guardado como Ansi y no como Unicode
-    Lista listaLibros;
-    procesar_archivo_entrada("libros.csv",listaLibros);
-    //listaLibros.imprimir();
+    Lista lista;
+    procesar_archivo_entrada("libros.csv",lista);
+    //lista.imprimir();
+
     return 0;
 }
 
 //Comentarios: atoi y atof requieren un char * para converter a número, usamos c_str de la clase string.
-void procesar_archivo_entrada(string origen,Lista listaLibros )
+void procesar_archivo_entrada(string origen,Lista listaLibros)
 {
     ifstream archivo(origen);
     if (!archivo.is_open())
@@ -91,6 +93,8 @@ void procesar_archivo_entrada(string origen,Lista listaLibros )
             pos_inicial = pos_final + 1;
             pos_final = linea.find(',', pos_inicial);
             string precio = linea.substr(pos_inicial, pos_final - pos_inicial);
+
+
 
             Libro libro(titulo,autor,editorial,anio,nro_edicion,nro_paginas,ejemplares_vendidos,precio,idLibro,lst_generos);
             listaLibros.vincularPorAnio(libro);

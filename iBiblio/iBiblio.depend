@@ -26,3 +26,25 @@
 	<iostream>
 	"Libro.h"
 
+1667949310 source:c:\users\jmgoi\onedrive\documentos\ayda\repo de github\sistbiblio\ibiblio\main.cpp
+	<iostream>
+	<fstream>
+	<clocale>
+	"Libro.h"
+	"Lista.h"
+
+1667946641 c:\users\jmgoi\onedrive\documentos\ayda\repo de github\sistbiblio\ibiblio\include\libro.h
+	<iostream>
+
+1667948038 c:\users\jmgoi\onedrive\documentos\ayda\repo de github\sistbiblio\ibiblio\include\lista.h
+	<iostream>
+	"Libro.h"
+
+1667945963 source:c:\users\jmgoi\onedrive\documentos\ayda\repo de github\sistbiblio\ibiblio\src\libro.cpp
+	"Libro.h"
+	<iostream>
+
+1667949427 source:c:\users\jmgoi\onedrive\documentos\ayda\repo de github\sistbiblio\ibiblio\src\lista.cpp
+	"Lista.h"
+	"Libro.h"
+
