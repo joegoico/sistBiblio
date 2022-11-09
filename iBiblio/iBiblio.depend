@@ -26,8 +26,9 @@
 	<iostream>
 	"Libro.h"
 
-1667949310 source:c:\users\jmgoi\onedrive\documentos\ayda\repo de github\sistbiblio\ibiblio\main.cpp
+1667950478 source:c:\users\jmgoi\onedrive\documentos\ayda\repo de github\sistbiblio\ibiblio\main.cpp
 	<iostream>
+	<sstream>
 	<fstream>
 	<clocale>
 	"Libro.h"
