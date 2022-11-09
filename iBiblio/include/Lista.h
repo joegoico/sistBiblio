@@ -14,9 +14,9 @@ class Lista
         nodo *pAnio;
     public:
         Lista();
-        void vincularPorAnio(Libro elemento);
+        void vincularPorAnio(Libro elemento, Lista &listalibros);
         bool existeLibro(string titulo);
-        void imprimir();
+        void imprimir(Libro listaLibros );
         void listarPorRango(int inicio,int fin,Lista elemento);
         virtual ~Lista();
 };

@@ -17,7 +17,6 @@ Libro::Libro(string t, string a, string e, int an, string ne, int p, int v, stri
     this->cant_vendidos=v;
     this->precio=pre;
     this->listaGeneros=lg;
-
 }
 string Libro::getTitulo(){
     return this->titulo;

@@ -10,20 +10,36 @@ using namespace std;
  * Abre el archivo según el origen, procesa las líneas del mismo y
  * almacena la información resultante en el contenedor pasado por referencia.
  **/
-void procesar_archivo_entrada(string origen,Lista listaLibros);//, Contenedor & contenedor);
-
+void procesar_archivo_entrada(string origen,Lista &listaLibros);//, Contenedor & contenedor);
+void pedirRango(Lista listaLibros){
+    int rangoInf=0, rangoSup=0;
+    cout<<"ingrese el rango inferior"<<endl;
+    cin>>rangoInf;
+    cout<<"ingrese el rango superior"<<endl;
+    cin>>rangoSup;
+    listaLibros.listarPorRango(rangoInf,rangoSup,listaLibros);
+}
+void buscarLibro(Lista lista){
+    string titulo;
+    cout<<"Ingrese el titulo que desea buscar:"<<endl;
+    cin>>titulo;
+    if (lista.existeLibro(titulo))
+        cout<<"El libro pertenece a la coleccion."<<endl;
+    else
+        cout<<"El libro no pertenece a la coleccion."<<endl;
+}
 int main()
 {
     setlocale(LC_ALL, ""); //asegurarse que el archivo de texto fue guardado como Ansi y no como Unicode
     Lista lista;
     procesar_archivo_entrada("libros.csv",lista);
-    //lista.imprimir();
-
+    buscarLibro(lista);
+    //pedirRango(lista);
     return 0;
 }
 
 //Comentarios: atoi y atof requieren un char * para converter a número, usamos c_str de la clase string.
-void procesar_archivo_entrada(string origen,Lista listaLibros)
+void procesar_archivo_entrada(string origen,Lista &listalibros)
 {
     ifstream archivo(origen);
     if (!archivo.is_open())
@@ -89,7 +105,7 @@ void procesar_archivo_entrada(string origen,Lista listaLibros)
             pos_final = linea.find(',', pos_inicial);
             int ejemplares_vendidos = atoi(linea.substr(pos_inicial, pos_final - pos_inicial).c_str());
 
-             //Decima posición del separador ;
+            //Decima posición del separador ;
             pos_inicial = pos_final + 1;
             pos_final = linea.find(',', pos_inicial);
             string precio = linea.substr(pos_inicial, pos_final - pos_inicial);
@@ -97,7 +113,7 @@ void procesar_archivo_entrada(string origen,Lista listaLibros)
 
 
             Libro libro(titulo,autor,editorial,anio,nro_edicion,nro_paginas,ejemplares_vendidos,precio,idLibro,lst_generos);
-            listaLibros.vincularPorAnio(libro);
+            listalibros.vincularPorAnio(libro,listalibros);
 
 
             /*cout << "LIBRO Nro "<< nroLibro<< ": " << endl;

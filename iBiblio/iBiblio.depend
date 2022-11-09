@@ -26,7 +26,7 @@
 	<iostream>
 	"Libro.h"
 
-1667950478 source:c:\users\jmgoi\onedrive\documentos\ayda\repo de github\sistbiblio\ibiblio\main.cpp
+1668028347 source:c:\users\jmgoi\onedrive\documentos\ayda\repo de github\sistbiblio\ibiblio\main.cpp
 	<iostream>
 	<sstream>
 	<fstream>
@@ -37,15 +37,15 @@
 1667946641 c:\users\jmgoi\onedrive\documentos\ayda\repo de github\sistbiblio\ibiblio\include\libro.h
 	<iostream>
 
-1667948038 c:\users\jmgoi\onedrive\documentos\ayda\repo de github\sistbiblio\ibiblio\include\lista.h
+1668028394 c:\users\jmgoi\onedrive\documentos\ayda\repo de github\sistbiblio\ibiblio\include\lista.h
 	<iostream>
 	"Libro.h"
 
-1667945963 source:c:\users\jmgoi\onedrive\documentos\ayda\repo de github\sistbiblio\ibiblio\src\libro.cpp
+1668024596 source:c:\users\jmgoi\onedrive\documentos\ayda\repo de github\sistbiblio\ibiblio\src\libro.cpp
 	"Libro.h"
 	<iostream>
 
-1667949427 source:c:\users\jmgoi\onedrive\documentos\ayda\repo de github\sistbiblio\ibiblio\src\lista.cpp
+1668028194 source:c:\users\jmgoi\onedrive\documentos\ayda\repo de github\sistbiblio\ibiblio\src\lista.cpp
 	"Lista.h"
 	"Libro.h"
 
