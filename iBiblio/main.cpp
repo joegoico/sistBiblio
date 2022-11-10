@@ -22,7 +22,7 @@ void pedirRango(Lista listaLibros){
 void buscarLibro(Lista lista){
     string titulo;
     cout<<"Ingrese el titulo que desea buscar:"<<endl;
-    cin>>titulo;
+    getline(cin,titulo);
     if (lista.existeLibro(titulo))
         cout<<"El libro pertenece a la coleccion."<<endl;
     else
