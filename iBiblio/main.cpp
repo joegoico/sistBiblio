@@ -156,4 +156,3 @@ void procesar_archivo_entrada(string origen,Lista &listalibros)
         }
     }
 }
-
