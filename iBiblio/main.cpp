@@ -10,7 +10,7 @@ using namespace std;
  * Abre el archivo según el origen, procesa las líneas del mismo y
  * almacena la información resultante en el contenedor pasado por referencia.
  **/
-void procesar_archivo_entrada(string origen,Lista &listaLibros);//, Contenedor & contenedor);
+void procesar_archivo_entrada(string origen,Lista &listaDeLibros);//, Contenedor & contenedor);
 void pedirRango(Lista listaLibros){
     int rangoInf=0, rangoSup=0;
     cout<<"ingrese el rango inferior"<<endl;
@@ -23,23 +23,47 @@ void buscarLibro(Lista lista){
     string titulo;
     cout<<"Ingrese el titulo que desea buscar:"<<endl;
     getline(cin,titulo);
+    cout<<titulo;
     if (lista.existeLibro(titulo))
         cout<<"El libro pertenece a la coleccion."<<endl;
     else
         cout<<"El libro no pertenece a la coleccion."<<endl;
 }
+void listarVendidos(Lista lista){
+    string genero;
+    cout<<"Introduzca un genero:"<<endl;
+    getline(cin,genero);
+    lista.masVendidos(lista,genero);
+}
 int main()
 {
     setlocale(LC_ALL, ""); //asegurarse que el archivo de texto fue guardado como Ansi y no como Unicode
-    Lista lista;
-    procesar_archivo_entrada("libros.csv",lista);
-    buscarLibro(lista);
-    //pedirRango(lista);
+    Lista listaDeLibros;
+    procesar_archivo_entrada("libros.csv",listaDeLibros);
+    int i;
+    cout<<"---------------Menu---------------"<<endl;
+    cout<<"1-Verificar si existe un libro"<<endl;
+    cout<<"2-Listar los libros lanzados entre dos años"<<endl;
+    cout<<"3-Listar los 10 libros mas vendidos de un genero"<<endl;
+    cout<<"Introduzca una opcion:"<<endl;
+    cin>>i;
+    while ((i!=1) and (i!=2) and (i!=3)){
+        cout<<"La opcion ingresada no es correcta."<<endl;
+        cout<<"Introduzca una opcion:"<<endl;
+        cin>>i;
+    }
+    if (i==1)
+        buscarLibro(listaDeLibros);
+    if (i==2)
+        pedirRango(listaDeLibros);
+    if (i==3)
+        listarVendidos(listaDeLibros);
+    cout<<"---------------------------------------------------------------------------";
     return 0;
 }
 
 //Comentarios: atoi y atof requieren un char * para converter a número, usamos c_str de la clase string.
-void procesar_archivo_entrada(string origen,Lista &listalibros)
+void procesar_archivo_entrada(string origen,Lista &listaDeLibros)
 {
     ifstream archivo(origen);
     if (!archivo.is_open())
@@ -113,7 +137,7 @@ void procesar_archivo_entrada(string origen,Lista &listalibros)
 
 
             Libro libro(titulo,autor,editorial,anio,nro_edicion,nro_paginas,ejemplares_vendidos,precio,idLibro,lst_generos);
-            listalibros.vincularPorAnio(libro,listalibros);
+            listaDeLibros.vincularPorAnio(libro,listaDeLibros);
 
 
             /*cout << "LIBRO Nro "<< nroLibro<< ": " << endl;

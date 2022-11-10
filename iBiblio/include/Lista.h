@@ -14,10 +14,13 @@ class Lista
         nodo *pAnio;
     public:
         Lista();
-        void vincularPorAnio(Libro elemento, Lista &listalibros);
-        bool existeLibro(string titulo);
-        void imprimir(Libro listaLibros );
-        void listarPorRango(int inicio,int fin,Lista elemento);
+        void imprimirVendidos(Lista listavendidos);
+        void vincularListaVendidos(Libro elemento,Lista &listavendidos);
+        void masVendidos(Lista listalibros, string genero);
+        void vincularPorAnio(Libro elemento,Lista &listalibros);
+        const bool existeLibro(string titulo);
+        const void imprimir(Libro listaLibros );
+        const void listarPorRango(int inicio,int fin,Lista elemento);
         virtual ~Lista();
 };
 
