@@ -1,6 +1,6 @@
 #include "Lista.h"
 #include "Libro.h"
-#include<string>
+#include "string.h"
 #include<iostream>
 
 using namespace std;
@@ -8,14 +8,36 @@ Lista::Lista()
 {
     this->pAnio=nullptr;
 }
-void Lista::imprimirVendidos(Lista listavendidos){
+void Lista::imprimirVendidos(){
     nodo *aux;
     aux=this->pAnio;
-    for (int i=0;i<10;i++){
-        listavendidos.imprimir(aux->elemento);
+    int i=0;
+    while((aux!=nullptr) && i<10){
+        this->imprimir(aux->elemento);
+        aux=aux->sig;
+        i++;
     }
 }
-void Lista::vincularListaVendidos(Libro elemento,Lista &listavendidos){
+bool compararGeneros(string generoLista, string generoUsuario){
+    int i=1, n=0;
+    bool coincide=false;
+    while((i<generoLista.size()) and (n<generoUsuario.size()) and (coincide==false)){
+        if(generoLista[i]==generoUsuario[n]){
+            i++;
+            n++;
+            if(((generoLista[i]== '|') or (generoLista[i]== ']'))  and (n==generoUsuario.size()))
+                coincide=true;
+        }
+        else {//if (generoLista[i]!=generoUsuario[n]){   redundante con el if de arriba
+            n=0;
+            while (generoLista[i]!='|' and generoLista[i]!=']')
+                i++;
+            i++;
+        }
+    }
+    return coincide;
+}
+void Lista::vincularListaVendidos(Libro elemento){
     nodo *aux= new nodo;
     if(this->pAnio==NULL){
         aux->elemento=elemento;
@@ -40,42 +62,24 @@ void Lista::vincularListaVendidos(Libro elemento,Lista &listavendidos){
     }
     delete(aux);
 }
-bool compararGeneros(string generoLista, string generoUsuario){
-    int i=1, n=0;
-    bool coincide=false;
-    while((i<generoLista.size()) and (n<generoUsuario.size()) and (coincide==false)){
-        if(generoLista[i]==generoUsuario[n]){
-            i++;
-            n++;
-        }
-        else if(((generoLista[i]== '|') or (generoLista[i]== ']'))  and (n=generoUsuario.size()))
-            coincide=true;
-        else if (generoLista[i]!=generoUsuario[n]){
-            n=0;
-            while (generoLista[i]!='|')
-                i++;
-            i++;
-        }
-    }
-    return coincide;
-}
-void Lista::masVendidos(Lista listalibros, string genero){
+void Lista::masVendidos(string genero){
     nodo *aux;
     aux=this->pAnio;
     Lista listaVendidos;
+
     while (aux!=nullptr){
         if (compararGeneros(aux->elemento.getListaGeneros(),genero))
-            vincularListaVendidos(aux->elemento,listaVendidos);
+            listaVendidos.vincularListaVendidos(aux->elemento);
         aux=aux->sig;
     }
-    //listaVendidos.imprimirVendidos(listalibros);
+    listaVendidos.imprimirVendidos();
 }
-const void Lista::listarPorRango(int inicio,int fin,Lista elemento){
+const void Lista::listarPorRango(int inicio,int fin){
     nodo *aux;
     aux=this->pAnio;
     while ((aux!=NULL) and (aux->elemento.getAnio()<=fin)) {
         if (aux->elemento.getAnio()>=inicio){
-            elemento.imprimir(aux->elemento);
+            this->imprimir(aux->elemento);
             aux=aux->sig;
         }
         else
@@ -104,13 +108,13 @@ const bool Lista::existeLibro(string titulo){
     nodo *aux;
     aux=this->pAnio;
     bool coincide=false;
-    while ((aux!=NULL) and (coincide==false)){
+    while ((aux!=NULL) and (!coincide)){
             coincide=compararTitulos(aux->elemento.getTitulo(),titulo);
             aux=aux->sig;
     }
    return coincide;
 }
-void Lista::vincularPorAnio(Libro elemento,Lista &listalibros){
+void Lista::vincularPorAnio(Libro elemento){
     nodo *aux= new nodo;
     if(this->pAnio==NULL){
         aux->elemento=elemento;

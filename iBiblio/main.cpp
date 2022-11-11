@@ -4,6 +4,7 @@
 #include <clocale>
 #include "Libro.h"
 #include "Lista.h"
+#include "string.h"
 using namespace std;
 
 /**
@@ -17,13 +18,13 @@ void pedirRango(Lista listaLibros){
     cin>>rangoInf;
     cout<<"ingrese el rango superior"<<endl;
     cin>>rangoSup;
-    listaLibros.listarPorRango(rangoInf,rangoSup,listaLibros);
+    listaLibros.listarPorRango(rangoInf,rangoSup);
 }
 void buscarLibro(Lista lista){
-    string titulo;
+    string t,titulo;
     cout<<"Ingrese el titulo que desea buscar:"<<endl;
-    getline(cin,titulo);
-    cout<<titulo;
+    fflush(stdin);//esta funcion me permite que el getline funcione correctamente
+    getline(cin,titulo);//uso esta funcion para que me tome todo el string de la consola, y nos solo la primer palabra
     if (lista.existeLibro(titulo))
         cout<<"El libro pertenece a la coleccion."<<endl;
     else
@@ -32,33 +33,42 @@ void buscarLibro(Lista lista){
 void listarVendidos(Lista lista){
     string genero;
     cout<<"Introduzca un genero:"<<endl;
-    getline(cin,genero);
-    lista.masVendidos(lista,genero);
+    cin>>genero;
+    lista.masVendidos(genero);
+}
+void menu(Lista listaLibros){
+    int i;
+    char menuAbierto='y';
+    while (menuAbierto=='y'){
+        cout<<"---------------Menu---------------"<<endl;
+        cout<<"1-Verificar si existe un libro"<<endl;
+        cout<<"2-Listar los libros lanzados entre dos años"<<endl;
+        cout<<"3-Listar los 10 libros mas vendidos de un genero"<<endl;
+        cout<<"Introduzca una opcion:"<<endl;
+        cin>>i;
+        while ((i!=1) and (i!=2) and (i!=3)){
+            cout<<"La opcion ingresada no es correcta."<<endl;
+            cout<<"Introduzca una opcion:"<<endl;
+            cin>>i;
+        }
+        if (i==1)
+            buscarLibro(listaLibros);
+        if (i==2)
+            pedirRango(listaLibros);
+        if (i==3)
+            listarVendidos(listaLibros);
+        cout<<"desea seguir operando entre las opciones?(y/n): "<<endl;
+        cin>>menuAbierto;
+        cout<<"---------------------------------------------------------------------------";
+    }
 }
 int main()
 {
     setlocale(LC_ALL, ""); //asegurarse que el archivo de texto fue guardado como Ansi y no como Unicode
     Lista listaDeLibros;
     procesar_archivo_entrada("libros.csv",listaDeLibros);
-    int i;
-    cout<<"---------------Menu---------------"<<endl;
-    cout<<"1-Verificar si existe un libro"<<endl;
-    cout<<"2-Listar los libros lanzados entre dos años"<<endl;
-    cout<<"3-Listar los 10 libros mas vendidos de un genero"<<endl;
-    cout<<"Introduzca una opcion:"<<endl;
-    cin>>i;
-    while ((i!=1) and (i!=2) and (i!=3)){
-        cout<<"La opcion ingresada no es correcta."<<endl;
-        cout<<"Introduzca una opcion:"<<endl;
-        cin>>i;
-    }
-    if (i==1)
-        buscarLibro(listaDeLibros);
-    if (i==2)
-        pedirRango(listaDeLibros);
-    if (i==3)
-        listarVendidos(listaDeLibros);
-    cout<<"---------------------------------------------------------------------------";
+    menu(listaDeLibros);
+    //listarVendidos(listaDeLibros);
     return 0;
 }
 
@@ -137,7 +147,7 @@ void procesar_archivo_entrada(string origen,Lista &listaDeLibros)
 
 
             Libro libro(titulo,autor,editorial,anio,nro_edicion,nro_paginas,ejemplares_vendidos,precio,idLibro,lst_generos);
-            listaDeLibros.vincularPorAnio(libro,listaDeLibros);
+            listaDeLibros.vincularPorAnio(libro);
 
 
             /*cout << "LIBRO Nro "<< nroLibro<< ": " << endl;
