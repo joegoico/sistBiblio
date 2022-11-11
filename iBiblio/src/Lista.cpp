@@ -13,6 +13,7 @@ void Lista::imprimirVendidos(){
     aux=this->pAnio;
     int i=0;
     while((aux!=nullptr) && i<10){
+        //cout<<aux->elemento.getVendidos();
         this->imprimir(aux->elemento);
         aux=aux->sig;
         i++;
@@ -51,7 +52,7 @@ void Lista::vincularListaVendidos(Libro elemento){
     }
     else{
         aux=this->pAnio;
-        while((aux->sig!=NULL) and (aux->sig->elemento.getVendidos()<=elemento.getVendidos())){
+        while((aux->sig!=NULL) and (aux->sig->elemento.getVendidos()>=elemento.getVendidos())){
             aux=aux->sig;
         }
         nodo *agregado= new nodo;
@@ -66,7 +67,6 @@ void Lista::masVendidos(string genero){
     nodo *aux;
     aux=this->pAnio;
     Lista listaVendidos;
-
     while (aux!=nullptr){
         if (compararGeneros(aux->elemento.getListaGeneros(),genero))
             listaVendidos.vincularListaVendidos(aux->elemento);

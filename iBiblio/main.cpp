@@ -1,3 +1,6 @@
+/* ACLARACION: EN LOS CASOS QUE SE QUIERA
+BUSCAR UN LIBRO QUE EN EL TITULO CONTENGA UNA Ñ
+NO LO ENCONTRARA YA QUE EL ENTORNO NO RECONOCE LA Ñ*/
 #include <iostream>
 #include <sstream>
 #include <fstream>
