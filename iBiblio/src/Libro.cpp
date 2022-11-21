@@ -48,6 +48,55 @@ string Libro::getListaGeneros(){
 string Libro::getISBN(){
     return this->isbn;
 }
+bool Libro::comparar(string tBuscado){
+    int i=0, n=0;
+    bool coincide=true;
+    while((i<this->titulo.size()) and (n<tBuscado.size()) and coincide){
+        if(tBuscado[n]=='*'){
+            while((i<this->titulo.size()) and (this->titulo[i]!=' '))
+                i++;
+            n++;
+        }
+        else if((tBuscado[n]==this->titulo[i]) or (tBuscado[n]=='?')){
+            n++;
+            i++;
+        }
+        else
+            coincide=false;
+    }
+    return coincide;
+}
+const void Libro::imprimir(){
+        cout << "   ISBN: " << this->isbn << endl;
+        cout << "   TITULO: " << this->titulo<< endl;
+        cout << "   AUTOR: " << this->autor<< endl;
+        cout << "   EDITORIAL: " << this->editorial<<endl;
+        cout << "   AñO EDICION: " << this->anio<< endl;
+        cout << "   NÚMERO EDICION: " << this->numero_edicion << endl;
+        cout << "   GENEROS: " << this->listaGeneros <<endl;
+        cout << "   PAGINAS: " << this->paginas <<endl;
+        cout << "   EJEMPLARES VENDIDOS: " << this->cant_vendidos <<endl;
+        cout << "   PRECIO: " << this->precio <<endl<<endl;
+}
+bool Libro::compararGeneros(string generoUsuario){
+    int i=1, n=0;
+    bool coincide=false;
+    while((i<this->listaGeneros.size()) and (n<generoUsuario.size()) and (coincide==false)){
+        if(this->listaGeneros[i]==generoUsuario[n]){
+            i++;
+            n++;
+            if(((this->listaGeneros[i]== '|') or (this->listaGeneros[i]== ']'))  and (n==generoUsuario.size()))
+                coincide=true;
+        }
+        else {
+            n=0;
+            while (this->listaGeneros[i]!='|' and this->listaGeneros[i]!=']')
+                i++;
+            i++;
+        }
+    }
+    return coincide;
+}
 Libro::~Libro()
 {
     //dtor

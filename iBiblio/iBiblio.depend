@@ -52,3 +52,101 @@
 	"string.h"
 	<iostream>
 
+1668024596 source:c:\users\jmgoi\onedrive\documentos\ayda\ayda1-grupo2-ferraro_goicoechea\ayda1-grupo2-ferraro_goicoechea\ibiblio\src\libro.cpp
+	"Libro.h"
+	<iostream>
+
+1667946641 c:\users\jmgoi\onedrive\documentos\ayda\ayda1-grupo2-ferraro_goicoechea\ayda1-grupo2-ferraro_goicoechea\ibiblio\include\libro.h
+	<iostream>
+
+1668704531 source:c:\users\jmgoi\onedrive\documentos\ayda\ayda1-grupo2-ferraro_goicoechea\ayda1-grupo2-ferraro_goicoechea\ibiblio\src\lista.cpp
+	"Lista.h"
+	"Libro.h"
+	"string.h"
+	<iostream>
+
+1668135535 c:\users\jmgoi\onedrive\documentos\ayda\ayda1-grupo2-ferraro_goicoechea\ayda1-grupo2-ferraro_goicoechea\ibiblio\include\lista.h
+	<iostream>
+	"Libro.h"
+
+1668704365 source:c:\users\jmgoi\onedrive\documentos\ayda\ayda1-grupo2-ferraro_goicoechea\ayda1-grupo2-ferraro_goicoechea\ibiblio\main.cpp
+	<iostream>
+	<sstream>
+	<fstream>
+	<clocale>
+	"Libro.h"
+	"Lista.h"
+	"string.h"
+
+1668803393 source:c:\users\jmgoi\onedrive\documentos\ayda\ayda1-grupo2-ferraro_goicoechea (2)\ayda1-grupo2-ferraro_goicoechea\ayda1-grupo2-ferraro_goicoechea\ibiblio\main.cpp
+	<iostream>
+	<sstream>
+	<fstream>
+	<clocale>
+	"Libro.h"
+	"Lista.h"
+	"string.h"
+
+1668799964 c:\users\jmgoi\onedrive\documentos\ayda\ayda1-grupo2-ferraro_goicoechea (2)\ayda1-grupo2-ferraro_goicoechea\ayda1-grupo2-ferraro_goicoechea\ibiblio\include\libro.h
+	<iostream>
+
+1668802758 c:\users\jmgoi\onedrive\documentos\ayda\ayda1-grupo2-ferraro_goicoechea (2)\ayda1-grupo2-ferraro_goicoechea\ayda1-grupo2-ferraro_goicoechea\ibiblio\include\lista.h
+	<iostream>
+	"Libro.h"
+
+1668800124 source:c:\users\jmgoi\onedrive\documentos\ayda\ayda1-grupo2-ferraro_goicoechea (2)\ayda1-grupo2-ferraro_goicoechea\ayda1-grupo2-ferraro_goicoechea\ibiblio\src\libro.cpp
+	"Libro.h"
+	<iostream>
+
+1668803011 source:c:\users\jmgoi\onedrive\documentos\ayda\ayda1-grupo2-ferraro_goicoechea (2)\ayda1-grupo2-ferraro_goicoechea\ayda1-grupo2-ferraro_goicoechea\ibiblio\src\lista.cpp
+	"Lista.h"
+	"Libro.h"
+	"string.h"
+	<iostream>
+
+1668803934 source:c:\users\jmgoi\onedrive\documentos\ayda\ayda1-grupo2-ferraro_goicoechea (2)\ayda1-grupo2-ferraro_goicoechea (2)\ayda1-grupo2-ferraro_goicoechea\ayda1-grupo2-ferraro_goicoechea\ibiblio\main.cpp
+	<iostream>
+	<sstream>
+	<fstream>
+	<clocale>
+	"Libro.h"
+	"Lista.h"
+	"string.h"
+
+1668799964 c:\users\jmgoi\onedrive\documentos\ayda\ayda1-grupo2-ferraro_goicoechea (2)\ayda1-grupo2-ferraro_goicoechea (2)\ayda1-grupo2-ferraro_goicoechea\ayda1-grupo2-ferraro_goicoechea\ibiblio\include\libro.h
+	<iostream>
+
+1668802758 c:\users\jmgoi\onedrive\documentos\ayda\ayda1-grupo2-ferraro_goicoechea (2)\ayda1-grupo2-ferraro_goicoechea (2)\ayda1-grupo2-ferraro_goicoechea\ayda1-grupo2-ferraro_goicoechea\ibiblio\include\lista.h
+	<iostream>
+	"Libro.h"
+
+1668800124 source:c:\users\jmgoi\onedrive\documentos\ayda\ayda1-grupo2-ferraro_goicoechea (2)\ayda1-grupo2-ferraro_goicoechea (2)\ayda1-grupo2-ferraro_goicoechea\ayda1-grupo2-ferraro_goicoechea\ibiblio\src\libro.cpp
+	"Libro.h"
+	<iostream>
+
+1668803934 source:c:\users\jmgoi\onedrive\documentos\ayda\ayda1-grupo2-ferraro_goicoechea\ibiblio\main.cpp
+	<iostream>
+	<sstream>
+	<fstream>
+	<clocale>
+	"Libro.h"
+	"Lista.h"
+	"string.h"
+
+1668799964 c:\users\jmgoi\onedrive\documentos\ayda\ayda1-grupo2-ferraro_goicoechea\ibiblio\include\libro.h
+	<iostream>
+
+1668802758 c:\users\jmgoi\onedrive\documentos\ayda\ayda1-grupo2-ferraro_goicoechea\ibiblio\include\lista.h
+	<iostream>
+	"Libro.h"
+
+1668800124 source:c:\users\jmgoi\onedrive\documentos\ayda\ayda1-grupo2-ferraro_goicoechea\ibiblio\src\libro.cpp
+	"Libro.h"
+	<iostream>
+
+1669047771 source:c:\users\jmgoi\onedrive\documentos\ayda\ayda1-grupo2-ferraro_goicoechea\ibiblio\src\lista.cpp
+	"Lista.h"
+	"Libro.h"
+	"string.h"
+	<iostream>
+

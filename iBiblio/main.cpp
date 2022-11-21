@@ -14,6 +14,36 @@ using namespace std;
  * Abre el archivo según el origen, procesa las líneas del mismo y
  * almacena la información resultante en el contenedor pasado por referencia.
  **/
+void listarPorRango(Lista listaDeLibros,int inicio,int fin){
+    listaDeLibros.Primero();
+    while ((listaDeLibros.CursorPublico!=NULL) and (listaDeLibros.CursorPublico->elemento.getAnio()<=fin)) {
+        if (listaDeLibros.CursorPublico->elemento.getAnio()>=inicio){
+            listaDeLibros.CursorPublico->elemento.imprimir();
+            listaDeLibros.CursorPublico=listaDeLibros.CursorPublico->sig;
+        }
+        else
+            listaDeLibros.CursorPublico=listaDeLibros.CursorPublico->sig;
+    }
+}
+void imprimirVendidos(Lista listaVendidos){
+    listaVendidos.Primero();
+    int i=0;
+    while((listaVendidos.CursorPublico!=nullptr) && i<10){
+        listaVendidos.CursorPublico->elemento.imprimir();
+        listaVendidos.CursorPublico=listaVendidos.CursorPublico->sig;
+        i++;
+    }
+}
+void masVendidos(Lista listaDeLibros,string genero){
+    listaDeLibros.Primero();
+    Lista listaVendidos;
+    while (listaDeLibros.CursorPublico!=nullptr){
+        if (listaDeLibros.CursorPublico->elemento.compararGeneros(genero))
+            listaVendidos.vincularListaVendidos(listaDeLibros.CursorPublico->elemento);
+        listaDeLibros.CursorPublico=listaDeLibros.CursorPublico->sig;
+    }
+    imprimirVendidos(listaVendidos);
+}
 void procesar_archivo_entrada(string origen,Lista &listaDeLibros);//, Contenedor & contenedor);
 void pedirRango(Lista listaLibros){
     int rangoInf=0, rangoSup=0;
@@ -21,7 +51,7 @@ void pedirRango(Lista listaLibros){
     cin>>rangoInf;
     cout<<"ingrese el rango superior"<<endl;
     cin>>rangoSup;
-    listaLibros.listarPorRango(rangoInf,rangoSup);
+    listarPorRango(listaLibros,rangoInf,rangoSup);
 }
 void buscarLibro(Lista lista){
     string t,titulo;
@@ -37,7 +67,7 @@ void listarVendidos(Lista lista){
     string genero;
     cout<<"Introduzca un genero:"<<endl;
     cin>>genero;
-    lista.masVendidos(genero);
+    masVendidos(lista,genero);
 }
 void menu(Lista listaLibros){
     int i;
@@ -71,7 +101,7 @@ int main()
     Lista listaDeLibros;
     procesar_archivo_entrada("libros.csv",listaDeLibros);
     menu(listaDeLibros);
-    //listarVendidos(listaDeLibros);
+
     return 0;
 }
 

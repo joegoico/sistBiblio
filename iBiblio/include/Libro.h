@@ -18,6 +18,9 @@ class Libro
         string getPrecio() ;
         string getListaGeneros() ;
         string getISBN() ;
+        bool comparar(string tituloUsuario);
+        bool compararGeneros(string genero);
+        const void imprimir();
         virtual ~Libro();
     private:
             string titulo,autor, editorial,precio,numero_edicion,isbn,listaGeneros;
